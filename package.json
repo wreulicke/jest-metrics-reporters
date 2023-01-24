@@ -1,0 +1,33 @@
+{
+  "name": "jest-metrics-reporters",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wreulicke/jest-metrics-reporters.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wreulicke/jest-metrics-reporters/issues"
+  },
+  "homepage": "https://github.com/wreulicke/jest-metrics-reporters#readme",
+  "devDependencies": {
+    "@jest/reporters": "^29.4.0",
+    "@jest/types": "^29.4.0",
+    "@types/jest": "^29.2.6",
+    "@types/node": "^18.11.18",
+    "jest": "^29.4.0",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@google-cloud/monitoring": "^3.0.3"
+  }
+}
