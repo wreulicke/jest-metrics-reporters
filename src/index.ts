@@ -105,11 +105,17 @@ export default class MetricsReporter implements Reporter {
       projectId: this.options.projectId || "",
       globalLabels: this.options.labels
     })
-    const request: protos.google.monitoring.v3.ICreateTimeSeriesRequest = {
-      name: this.options.projectId ? this.client.projectPath(this.options.projectId) : null,
-      timeSeries
+    while(timeSeries.length > 0) {
+      let part = timeSeries
+      if(timeSeries.length > 200) {
+        part = timeSeries.splice(0, 200)
+      }
+      const request: protos.google.monitoring.v3.ICreateTimeSeriesRequest = {
+        name: this.options.projectId ? this.client.projectPath(this.options.projectId) : null,
+        timeSeries
+      }
+      await this.client.createTimeSeries(request)
     }
-    await this.client.createTimeSeries(request)
   }
   getLastError(): void | Error {
   }
